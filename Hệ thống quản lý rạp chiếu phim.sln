@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hệ thống quản lý rạp chiếu phim", "Hệ thống quản lý rạp chiếu phim.csproj", "{9D2C61AA-F2DB-44DA-98C3-FC4EDFD3690B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D2C61AA-F2DB-44DA-98C3-FC4EDFD3690B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D2C61AA-F2DB-44DA-98C3-FC4EDFD3690B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D2C61AA-F2DB-44DA-98C3-FC4EDFD3690B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D2C61AA-F2DB-44DA-98C3-FC4EDFD3690B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BA11323-7740-4D29-A027-E6452054287D}
+	EndGlobalSection
+EndGlobal
