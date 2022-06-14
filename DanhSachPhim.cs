@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 {
-    public partial class Form1 : Form
+    public partial class DanhSachPhim : Form
     {
-        public Form1()
+        public DanhSachPhim()
         {
             InitializeComponent();
+        }
+
+        private void DanhSachPhim_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
