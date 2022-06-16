@@ -15,7 +15,10 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         public TrangChu()
         {
             InitializeComponent();
+
         }
+        public bool isLogin = false;
+
         Form activeForm = null;
         void openChildForm(Form Fname)
         {
@@ -59,6 +62,41 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         {
             TaoTheThanhVien FormTaoThe = new TaoTheThanhVien();
             openChildForm(FormTaoThe);
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            isLogin = false;
+            DangNhap FormDangNhap = new DangNhap();
+            this.Hide();
+            FormDangNhap.ShowDialog();
+        }
+
+        private void TrangChu_Load(object sender, EventArgs e)
+        {
+            if (!isLogin)
+            {
+                DangNhap FormDangNhap = new DangNhap();
+                this.Hide();
+                FormDangNhap.ShowDialog();
+            }
+        }
+
+        private void btn_Exit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_TaoVePhim_Click(object sender, EventArgs e)
+        {
+            TaoVePhim FormTaoVePhim = new TaoVePhim();
+            openChildForm(FormTaoVePhim);
+        }
+
+        private void btn_TaoHoaDon_Click(object sender, EventArgs e)
+        {
+            TaoHoaDon FormTaoHoaDon = new TaoHoaDon();
+            openChildForm(FormTaoHoaDon);
         }
     }
 }

@@ -37,13 +37,14 @@
             this.tb_DiaChi = new System.Windows.Forms.TextBox();
             this.tb_Email = new System.Windows.Forms.TextBox();
             this.tb_SDT = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(230, 87);
+            this.label1.Location = new System.Drawing.Point(305, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 29);
             this.label1.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(230, 270);
+            this.label2.Location = new System.Drawing.Point(305, 297);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 29);
             this.label2.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(230, 148);
+            this.label3.Location = new System.Drawing.Point(305, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 29);
             this.label3.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(230, 209);
+            this.label4.Location = new System.Drawing.Point(305, 236);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 29);
             this.label4.TabIndex = 3;
@@ -82,7 +83,7 @@
             // btn_TaoThe
             // 
             this.btn_TaoThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TaoThe.Location = new System.Drawing.Point(577, 358);
+            this.btn_TaoThe.Location = new System.Drawing.Point(501, 390);
             this.btn_TaoThe.Name = "btn_TaoThe";
             this.btn_TaoThe.Size = new System.Drawing.Size(216, 72);
             this.btn_TaoThe.TabIndex = 4;
@@ -93,7 +94,7 @@
             // tb_HoTen
             // 
             this.tb_HoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_HoTen.Location = new System.Drawing.Point(525, 81);
+            this.tb_HoTen.Location = new System.Drawing.Point(581, 107);
             this.tb_HoTen.Name = "tb_HoTen";
             this.tb_HoTen.Size = new System.Drawing.Size(324, 30);
             this.tb_HoTen.TabIndex = 5;
@@ -101,7 +102,7 @@
             // tb_DiaChi
             // 
             this.tb_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DiaChi.Location = new System.Drawing.Point(525, 148);
+            this.tb_DiaChi.Location = new System.Drawing.Point(581, 174);
             this.tb_DiaChi.Name = "tb_DiaChi";
             this.tb_DiaChi.Size = new System.Drawing.Size(324, 30);
             this.tb_DiaChi.TabIndex = 6;
@@ -109,7 +110,7 @@
             // tb_Email
             // 
             this.tb_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Email.Location = new System.Drawing.Point(526, 209);
+            this.tb_Email.Location = new System.Drawing.Point(582, 235);
             this.tb_Email.Name = "tb_Email";
             this.tb_Email.Size = new System.Drawing.Size(324, 30);
             this.tb_Email.TabIndex = 7;
@@ -117,16 +118,27 @@
             // tb_SDT
             // 
             this.tb_SDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_SDT.Location = new System.Drawing.Point(525, 270);
+            this.tb_SDT.Location = new System.Drawing.Point(581, 296);
             this.tb_SDT.Name = "tb_SDT";
             this.tb_SDT.Size = new System.Drawing.Size(324, 30);
             this.tb_SDT.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(415, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(366, 46);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Tạo thẻ thành viên";
             // 
             // TaoTheThanhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_SDT);
             this.Controls.Add(this.tb_Email);
             this.Controls.Add(this.tb_DiaChi);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.TextBox tb_DiaChi;
         private System.Windows.Forms.TextBox tb_Email;
         private System.Windows.Forms.TextBox tb_SDT;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -30,7 +30,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "INSERT INTO TheThanhVien VALUES ('1', N'" + tb_HoTen.Text + "','" + tb_SDT.Text + "', N'" + tb_DiaChi.Text + "' , '" + tb_Email.Text + "', 0, 'ThanhVien', 'NV1' )";
+            cmd.CommandText = "INSERT INTO TheThanhVien VALUES (N'" + tb_HoTen.Text + "','" + tb_SDT.Text + "', N'" + tb_DiaChi.Text + "' , '" + tb_Email.Text + "', 0, 'ThanhVien', 'NV1' )";
             cmd.ExecuteNonQuery();
         }
     }
