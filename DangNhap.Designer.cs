@@ -30,9 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_Username = new System.Windows.Forms.TextBox();
+            this.tb_Password = new System.Windows.Forms.TextBox();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,21 +58,22 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             // 
-            // textBox1
+            // tb_Username
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(323, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 30);
-            this.textBox1.TabIndex = 2;
+            this.tb_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Username.Location = new System.Drawing.Point(323, 81);
+            this.tb_Username.Name = "tb_Username";
+            this.tb_Username.Size = new System.Drawing.Size(262, 30);
+            this.tb_Username.TabIndex = 2;
             // 
-            // textBox2
+            // tb_Password
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(323, 145);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 30);
-            this.textBox2.TabIndex = 3;
+            this.tb_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Password.Location = new System.Drawing.Point(323, 145);
+            this.tb_Password.Name = "tb_Password";
+            this.tb_Password.PasswordChar = '*';
+            this.tb_Password.Size = new System.Drawing.Size(262, 30);
+            this.tb_Password.TabIndex = 3;
             // 
             // btn_Login
             // 
@@ -81,15 +85,34 @@
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.bnt_Login_Click);
             // 
+            // dgv1
+            // 
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Location = new System.Drawing.Point(232, 324);
+            this.dgv1.Name = "dgv1";
+            this.dgv1.RowHeadersWidth = 51;
+            this.dgv1.RowTemplate.Height = 24;
+            this.dgv1.Size = new System.Drawing.Size(502, 156);
+            this.dgv1.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(610, 229);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 22);
+            this.textBox1.TabIndex = 6;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(805, 357);
-            this.Controls.Add(this.btn_Login);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(1000, 641);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dgv1);
+            this.Controls.Add(this.btn_Login);
+            this.Controls.Add(this.tb_Password);
+            this.Controls.Add(this.tb_Username);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -97,6 +120,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.DangNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,8 +131,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_Username;
+        private System.Windows.Forms.TextBox tb_Password;
         private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.DataGridView dgv1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

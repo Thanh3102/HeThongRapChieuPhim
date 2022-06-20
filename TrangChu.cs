@@ -74,12 +74,14 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            if (!isLogin)
-            {
-                DangNhap FormDangNhap = new DangNhap();
-                this.Hide();
-                FormDangNhap.ShowDialog();
-            }
+            //if (!isLogin)
+            //{
+            //    DangNhap FormDangNhap = new DangNhap();
+            //    this.Hide();
+            //    FormDangNhap.ShowDialog();
+            //}
+            DangNhap formDangNhap = new DangNhap();
+            formDangNhap.ShowDialog();
         }
 
         private void btn_Exit_Click_1(object sender, EventArgs e)
@@ -97,6 +99,17 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         {
             TaoHoaDon FormTaoHoaDon = new TaoHoaDon();
             openChildForm(FormTaoHoaDon);
+        }
+
+        private void btn_test_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_CapNhat_Click(object sender, EventArgs e)
+        {
+            LichChieu formLichChieu = new LichChieu();
+            openChildForm(formLichChieu);
         }
     }
 }
