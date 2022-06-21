@@ -16,7 +16,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrangChu());
+            Application.Run(new DangNhap());
         }
     }
 }

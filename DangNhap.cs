@@ -25,42 +25,117 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             public string username;
             public string password;
             public string HoTen;
-            public TaiKhoan(string username, string password, SqlConnection conn, DataGridView dgv)
+            public TaiKhoan(string username, string password, SqlConnection conn)
             {
                 this.username = username;
                 this.password = password;
-                this.HoTen = this.getHoTen(conn, dgv);
             }
-            public string getHoTen(SqlConnection conn, DataGridView dgv)
+            public string getHoTen(SqlConnection conn)
             {
                 string sql = "SELECT HoTen FROM NhanVien WHERE Username = '" + username + "'";
-                SqlDataAdapter HoTen = new SqlDataAdapter(sql,conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
                 DataTable dt = new DataTable();
-                HoTen.Fill(dt);
-                dgv.DataSource = dt;
-                return dt.Rows[0].Field<string>("HoTen").ToString();
+                adapter.Fill(dt);
+                if (Convert.ToInt32(dt.Rows.Count) == 0)
+                {
+                    return "";
+                }
+                else
+                {
+                    return dt.Rows[0].Field<string>("HoTen").ToString();
+                }
+            }
+            public bool checkPassword(SqlConnection conn)
+            {
+                bool isCorrect = false;
+                string sql = "SELECT password FROM NhanVien WHERE Username = '" + username + "'";
+                SqlDataAdapter PW = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                PW.Fill(dt);
+                if (this.password.Equals(dt.Rows[0].Field<string>("password").ToString()))
+                {
+                    isCorrect = true;
+                    return isCorrect;
+                }
+                else
+                {
+                    return isCorrect;
+                }
+            }
+
+            public bool isExist(SqlConnection conn)
+            {
+                string sql = "SELECT password FROM NhanVien WHERE Username = '" + username + "'";
+                SqlDataAdapter PW = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                PW.Fill(dt);
+                if (dt.Rows.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
 
         private void bnt_Login_Click(object sender, EventArgs e)
         {
-            //LoginAccount = new TaiKhoan(tb_Username.Text, tb_Password.Text, conn, dgv1);
-            //textBox1.Text = LoginAccount.HoTen;
+            if (tb_Username.Text == "")
+            {
+                MessageBox.Show("Chưa nhập tên tài khoản !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tb_Username.Focus();
+                return;
+            }
+            else
+            {
+                if (tb_Password.Text == "")
+                {
+                    MessageBox.Show("Chưa nhập mật khẩu !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tb_Password.Focus();
+                    return;
+                }
+                else
+                {
+                    LoginAccount = new TaiKhoan(tb_Username.Text, tb_Password.Text, conn);
+                    if (LoginAccount.isExist(conn))
+                    {
+                        if (LoginAccount.checkPassword(conn))
+                        {
+                            TrangChu formTrangChu = new TrangChu();
+                            formTrangChu.tb_AccountName.Text = "Tài khoản: " + LoginAccount.getHoTen(conn);
+                            tb_Username.Text = string.Empty;
+                            tb_Password.Text = string.Empty;
+                            this.Hide();
+                            formTrangChu.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tài khoản không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tb_Username.Text = string.Empty;
+                        tb_Password.Text = string.Empty;
+                        tb_Username.Focus();
+                    }
 
-
-            //formTrangChu.isLogin = true;
-            //formTrangChu.tb_AccountName.Text = "Tên nhân viên: " + LoginAccount.HoTen;
-            //MessageBox.Show(LoginAccount.HoTen, "Thông báo");
-/*            TrangChu formTrangChu = Application.OpenForms[0];
-            formTrangChu.Show();
-            formTrangChu.panel1.Visible = true;*/
-            this.Close();
+                }
+            }
         }
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(connectionString);
             conn.Open();
+        }
+
+        private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
         }
     }
 }

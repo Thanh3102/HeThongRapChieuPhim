@@ -56,7 +56,7 @@
             this.gb_LichChieu.Controls.Add(this.dgv_LichChieu);
             this.gb_LichChieu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gb_LichChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_LichChieu.Location = new System.Drawing.Point(0, 367);
+            this.gb_LichChieu.Location = new System.Drawing.Point(0, 467);
             this.gb_LichChieu.Name = "gb_LichChieu";
             this.gb_LichChieu.Size = new System.Drawing.Size(1232, 386);
             this.gb_LichChieu.TabIndex = 0;
@@ -84,7 +84,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.gb_CapNhat);
-            this.splitContainer1.Size = new System.Drawing.Size(1232, 367);
+            this.splitContainer1.Size = new System.Drawing.Size(1232, 467);
             this.splitContainer1.SplitterDistance = 551;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -105,7 +105,7 @@
             this.gb_CapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_CapNhat.Location = new System.Drawing.Point(0, 0);
             this.gb_CapNhat.Name = "gb_CapNhat";
-            this.gb_CapNhat.Size = new System.Drawing.Size(551, 367);
+            this.gb_CapNhat.Size = new System.Drawing.Size(551, 467);
             this.gb_CapNhat.TabIndex = 12;
             this.gb_CapNhat.TabStop = false;
             this.gb_CapNhat.Text = "Cập nhật lịch chiếu";
@@ -113,7 +113,7 @@
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(366, 272);
+            this.button3.Location = new System.Drawing.Point(355, 354);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(146, 59);
             this.button3.TabIndex = 22;
@@ -123,7 +123,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(214, 272);
+            this.button2.Location = new System.Drawing.Point(203, 354);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 59);
             this.button2.TabIndex = 21;
@@ -132,7 +132,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(58, 272);
+            this.button1.Location = new System.Drawing.Point(47, 354);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 59);
             this.button1.TabIndex = 20;
@@ -143,7 +143,7 @@
             // 
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(214, 88);
+            this.comboBox2.Location = new System.Drawing.Point(214, 106);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(235, 33);
             this.comboBox2.TabIndex = 19;
@@ -161,7 +161,7 @@
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(214, 205);
+            this.dateTimePicker2.Location = new System.Drawing.Point(214, 255);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(161, 30);
             this.dateTimePicker2.TabIndex = 17;
@@ -170,7 +170,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 205);
+            this.label4.Location = new System.Drawing.Point(39, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 25);
             this.label4.TabIndex = 16;
@@ -180,7 +180,7 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(214, 149);
+            this.dateTimePicker1.Location = new System.Drawing.Point(214, 183);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(161, 30);
             this.dateTimePicker1.TabIndex = 15;
@@ -190,7 +190,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 147);
+            this.label3.Location = new System.Drawing.Point(39, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 25);
             this.label3.TabIndex = 14;
@@ -210,7 +210,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 91);
+            this.label1.Location = new System.Drawing.Point(39, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 25);
             this.label1.TabIndex = 12;
@@ -220,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 753);
+            this.ClientSize = new System.Drawing.Size(1232, 853);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.gb_LichChieu);
             this.Name = "LichChieu";

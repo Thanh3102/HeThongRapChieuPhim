@@ -17,8 +17,6 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             InitializeComponent();
 
         }
-        public bool isLogin = false;
-
         Form activeForm = null;
         void openChildForm(Form Fname)
         {
@@ -66,22 +64,19 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
-            isLogin = false;
-            DangNhap FormDangNhap = new DangNhap();
-            this.Hide();
-            FormDangNhap.ShowDialog();
+            foreach(Form f in Application.OpenForms)
+            {
+                if (f.Name == "DangNhap")
+                {
+                    f.Show();
+                    this.Close();
+                }
+            }  
         }
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            //if (!isLogin)
-            //{
-            //    DangNhap FormDangNhap = new DangNhap();
-            //    this.Hide();
-            //    FormDangNhap.ShowDialog();
-            //}
-            DangNhap formDangNhap = new DangNhap();
-            formDangNhap.ShowDialog();
+
         }
 
         private void btn_Exit_Click_1(object sender, EventArgs e)
