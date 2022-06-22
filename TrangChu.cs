@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 {
@@ -18,6 +19,8 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         }
         Form activeForm = null;
+        SqlConnection conn = null;
+        public TaiKhoan LoginAccount;
         void openChildForm(Form Fname)
         {
             if (activeForm == null)
@@ -59,6 +62,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         private void btn_TaoThe_Click(object sender, EventArgs e)
         {
             TaoTheThanhVien FormTaoThe = new TaoTheThanhVien();
+            FormTaoThe.LoginAccount = this.LoginAccount;
             openChildForm(FormTaoThe);
         }
 
@@ -76,7 +80,8 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-
+            conn = new SqlConnection(DangNhap.connectionString);
+            tb_AccountName.Text = "Tài khoản: " + LoginAccount.getHoTen(conn);
         }
 
         private void btn_Exit_Click_1(object sender, EventArgs e)
@@ -98,7 +103,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show(LoginAccount.getID(conn));
         }
 
         private void btn_CapNhat_Click(object sender, EventArgs e)

@@ -20,66 +20,6 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         public static string connectionString = "Data Source=LAPTOP-UUV86GVD;Initial Catalog=RapChieuPhim;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn = null;
         public TaiKhoan LoginAccount = null;
-        public class TaiKhoan
-        {
-            public string username;
-            public string password;
-            public string HoTen;
-            public TaiKhoan(string username, string password, SqlConnection conn)
-            {
-                this.username = username;
-                this.password = password;
-            }
-            public string getHoTen(SqlConnection conn)
-            {
-                string sql = "SELECT HoTen FROM NhanVien WHERE Username = '" + username + "'";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                if (Convert.ToInt32(dt.Rows.Count) == 0)
-                {
-                    return "";
-                }
-                else
-                {
-                    return dt.Rows[0].Field<string>("HoTen").ToString();
-                }
-            }
-            public bool checkPassword(SqlConnection conn)
-            {
-                bool isCorrect = false;
-                string sql = "SELECT password FROM NhanVien WHERE Username = '" + username + "'";
-                SqlDataAdapter PW = new SqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                PW.Fill(dt);
-                if (this.password.Equals(dt.Rows[0].Field<string>("password").ToString()))
-                {
-                    isCorrect = true;
-                    return isCorrect;
-                }
-                else
-                {
-                    return isCorrect;
-                }
-            }
-
-            public bool isExist(SqlConnection conn)
-            {
-                string sql = "SELECT password FROM NhanVien WHERE Username = '" + username + "'";
-                SqlDataAdapter PW = new SqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                PW.Fill(dt);
-                if (dt.Rows.Count == 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
-
         private void bnt_Login_Click(object sender, EventArgs e)
         {
             if (tb_Username.Text == "")
@@ -104,9 +44,9 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                         if (LoginAccount.checkPassword(conn))
                         {
                             TrangChu formTrangChu = new TrangChu();
-                            formTrangChu.tb_AccountName.Text = "Tài khoản: " + LoginAccount.getHoTen(conn);
                             tb_Username.Text = string.Empty;
                             tb_Password.Text = string.Empty;
+                            formTrangChu.LoginAccount = this.LoginAccount;
                             this.Hide();
                             formTrangChu.ShowDialog();
                         }
@@ -136,6 +76,80 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.Close();
+        }
+    }
+}
+
+public class TaiKhoan
+{
+    private string username;
+    private string password;
+    public TaiKhoan(string username, string password, SqlConnection conn)
+    {
+        this.username = username;
+        this.password = password;
+    }
+    public string getHoTen(SqlConnection conn)
+    {
+        string sql = "SELECT HoTen FROM NhanVien WHERE Username = '" + username + "'";
+        SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+        DataTable dt = new DataTable();
+        adapter.Fill(dt);
+        if (dt.Rows.Count == 0)
+        {
+            return "";
+        }
+        else
+        {
+            return dt.Rows[0].Field<string>("HoTen").ToString();
+        }
+    }
+    public bool checkPassword(SqlConnection conn)
+    {
+        bool isCorrect = false;
+        string sql = "SELECT password FROM NhanVien WHERE Username = '" + username + "'";
+        SqlDataAdapter PW = new SqlDataAdapter(sql, conn);
+        DataTable dt = new DataTable();
+        PW.Fill(dt);
+        if (this.password.Equals(dt.Rows[0].Field<string>("password").ToString()))
+        {
+            isCorrect = true;
+            return isCorrect;
+        }
+        else
+        {
+            return isCorrect;
+        }
+    }
+
+    public bool isExist(SqlConnection conn)
+    {
+        string sql = "SELECT password FROM NhanVien WHERE Username = '" + username + "'";
+        SqlDataAdapter PW = new SqlDataAdapter(sql, conn);
+        DataTable dt = new DataTable();
+        PW.Fill(dt);
+        if (dt.Rows.Count == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    public string getID(SqlConnection conn)
+    {
+        string sql = "SELECT MaNhanVien FROM NhanVien WHERE Username = '" + username + "'";
+        SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+        DataTable dt = new DataTable();
+        adapter.Fill(dt);
+        if (dt.Rows.Count == 0)
+        {
+            return "";
+        }
+        else
+        {
+            return dt.Rows[0].Field<int>("MaNhanVien").ToString();
         }
     }
 }
