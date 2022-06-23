@@ -64,7 +64,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO TheThanhVien VALUES (N'" + tb_HoTen.Text + "','" + tb_SDT.Text + "', N'" + tb_DiaChi.Text + "' , '" + tb_Email.Text + "', 0, 'ThanhVien', '" + LoginAccount.getID(conn) + "' )";
+                    cmd.CommandText = "INSERT INTO TheThanhVien VALUES (N'" + tb_HoTen.Text + "','" + tb_SDT.Text + "', N'" + tb_DiaChi.Text + "' , '" + tb_Email.Text + "', 0, 'ThanhVien', '" + DateTime.Now + "','" + LoginAccount.getID(conn) + "' )";
                     cmd.ExecuteNonQuery();
                 }
                 else

@@ -77,6 +77,11 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         {
             conn.Close();
         }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 

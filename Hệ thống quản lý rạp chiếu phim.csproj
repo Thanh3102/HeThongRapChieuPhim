@@ -59,6 +59,12 @@
     <Compile Include="CapNhatLichChieu.Designer.cs">
       <DependentUpon>CapNhatLichChieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormThemPhim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemPhim.Designer.cs">
+      <DependentUpon>FormThemPhim.cs</DependentUpon>
+    </Compile>
     <Compile Include="LichChieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapNhatLichChieu.resx">
       <DependentUpon>CapNhatLichChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemPhim.resx">
+      <DependentUpon>FormThemPhim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LichChieu.resx">
       <DependentUpon>LichChieu.cs</DependentUpon>
