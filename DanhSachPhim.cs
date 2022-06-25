@@ -197,5 +197,10 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                 reloadData();
             }
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            reloadData();
+        }
     }
 }

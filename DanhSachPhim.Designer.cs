@@ -42,13 +42,14 @@
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.gb_ThongTin = new System.Windows.Forms.GroupBox();
+            this.btn_Change = new System.Windows.Forms.Button();
             this.tb_QuocGia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.FilmImage = new System.Windows.Forms.PictureBox();
-            this.dgv_DSPhim = new System.Windows.Forms.DataGridView();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
-            this.btn_Change = new System.Windows.Forms.Button();
+            this.dgv_DSPhim = new System.Windows.Forms.DataGridView();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.gb_ThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FilmImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSPhim)).BeginInit();
@@ -201,6 +202,7 @@
             // 
             // gb_ThongTin
             // 
+            this.gb_ThongTin.Controls.Add(this.btn_Refresh);
             this.gb_ThongTin.Controls.Add(this.btn_Change);
             this.gb_ThongTin.Controls.Add(this.tb_QuocGia);
             this.gb_ThongTin.Controls.Add(this.label6);
@@ -228,6 +230,17 @@
             this.gb_ThongTin.TabIndex = 16;
             this.gb_ThongTin.TabStop = false;
             this.gb_ThongTin.Text = "Thông tin phim";
+            // 
+            // btn_Change
+            // 
+            this.btn_Change.Location = new System.Drawing.Point(130, 353);
+            this.btn_Change.Name = "btn_Change";
+            this.btn_Change.Size = new System.Drawing.Size(136, 43);
+            this.btn_Change.TabIndex = 20;
+            this.btn_Change.Text = "Thay đổi";
+            this.btn_Change.UseVisualStyleBackColor = true;
+            this.btn_Change.Visible = false;
+            this.btn_Change.Click += new System.EventHandler(this.btn_Change_Click);
             // 
             // tb_QuocGia
             // 
@@ -261,24 +274,6 @@
             this.FilmImage.TabIndex = 1;
             this.FilmImage.TabStop = false;
             // 
-            // dgv_DSPhim
-            // 
-            this.dgv_DSPhim.AllowUserToAddRows = false;
-            this.dgv_DSPhim.AllowUserToDeleteRows = false;
-            this.dgv_DSPhim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_DSPhim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_DSPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DSPhim.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_DSPhim.Location = new System.Drawing.Point(0, 425);
-            this.dgv_DSPhim.Name = "dgv_DSPhim";
-            this.dgv_DSPhim.ReadOnly = true;
-            this.dgv_DSPhim.RowHeadersWidth = 51;
-            this.dgv_DSPhim.RowTemplate.Height = 24;
-            this.dgv_DSPhim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_DSPhim.Size = new System.Drawing.Size(1232, 328);
-            this.dgv_DSPhim.TabIndex = 17;
-            this.dgv_DSPhim.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSPhim_CellClick);
-            // 
             // btn_Save
             // 
             this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -303,16 +298,34 @@
             this.btn_Cancel.Visible = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
-            // btn_Change
+            // dgv_DSPhim
             // 
-            this.btn_Change.Location = new System.Drawing.Point(114, 353);
-            this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(136, 43);
-            this.btn_Change.TabIndex = 20;
-            this.btn_Change.Text = "Thay đổi";
-            this.btn_Change.UseVisualStyleBackColor = true;
-            this.btn_Change.Visible = false;
-            this.btn_Change.Click += new System.EventHandler(this.btn_Change_Click);
+            this.dgv_DSPhim.AllowUserToAddRows = false;
+            this.dgv_DSPhim.AllowUserToDeleteRows = false;
+            this.dgv_DSPhim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_DSPhim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_DSPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DSPhim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_DSPhim.Location = new System.Drawing.Point(0, 425);
+            this.dgv_DSPhim.Name = "dgv_DSPhim";
+            this.dgv_DSPhim.ReadOnly = true;
+            this.dgv_DSPhim.RowHeadersWidth = 51;
+            this.dgv_DSPhim.RowTemplate.Height = 24;
+            this.dgv_DSPhim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DSPhim.Size = new System.Drawing.Size(1232, 328);
+            this.dgv_DSPhim.TabIndex = 17;
+            this.dgv_DSPhim.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSPhim_CellClick);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Location = new System.Drawing.Point(919, 341);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(152, 55);
+            this.btn_Refresh.TabIndex = 21;
+            this.btn_Refresh.Text = "Làm mới";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // DanhSachPhim
             // 
@@ -355,5 +368,6 @@
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Change;
+        private System.Windows.Forms.Button btn_Refresh;
     }
 }

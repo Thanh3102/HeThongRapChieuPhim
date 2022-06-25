@@ -235,6 +235,7 @@
             this.Name = "FormThemPhim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm phim mới";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormThemPhim_FormClosed);
             this.Load += new System.EventHandler(this.FormThemPhim_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
             this.ResumeLayout(false);

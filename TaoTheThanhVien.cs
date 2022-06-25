@@ -66,6 +66,11 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                     cmd.Connection = conn;
                     cmd.CommandText = "INSERT INTO TheThanhVien VALUES (N'" + tb_HoTen.Text + "','" + tb_SDT.Text + "', N'" + tb_DiaChi.Text + "' , '" + tb_Email.Text + "', 0, 'ThanhVien', '" + DateTime.Now + "','" + LoginAccount.getID(conn) + "' )";
                     cmd.ExecuteNonQuery();
+                    string sql = "SELECT TOP 1 * FROM TheThanhVien ORDER BY MaThe DESC";
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    MessageBox.Show("Tạo thẻ thành công !\nMã thẻ: " + dt.Rows[0].Field<int>("MaThe").ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {

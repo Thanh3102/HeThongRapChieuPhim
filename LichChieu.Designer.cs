@@ -30,24 +30,19 @@
         {
             this.gb_LichChieu = new System.Windows.Forms.GroupBox();
             this.dgv_LichChieu = new System.Windows.Forms.DataGridView();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gb_CapNhat = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btn_Xoa = new System.Windows.Forms.Button();
+            this.btn_Them = new System.Windows.Forms.Button();
+            this.cb_Phim = new System.Windows.Forms.ComboBox();
+            this.cb_PhongChieu = new System.Windows.Forms.ComboBox();
+            this.datePicker_NgayChieu = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.timePicker_KhungGio = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gb_LichChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LichChieu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.gb_CapNhat.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,48 +51,39 @@
             this.gb_LichChieu.Controls.Add(this.dgv_LichChieu);
             this.gb_LichChieu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gb_LichChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_LichChieu.Location = new System.Drawing.Point(0, 467);
+            this.gb_LichChieu.Location = new System.Drawing.Point(0, 291);
             this.gb_LichChieu.Name = "gb_LichChieu";
-            this.gb_LichChieu.Size = new System.Drawing.Size(1232, 386);
+            this.gb_LichChieu.Size = new System.Drawing.Size(1232, 562);
             this.gb_LichChieu.TabIndex = 0;
             this.gb_LichChieu.TabStop = false;
             this.gb_LichChieu.Text = "Lịch chiếu";
             // 
             // dgv_LichChieu
             // 
+            this.dgv_LichChieu.AllowUserToAddRows = false;
+            this.dgv_LichChieu.AllowUserToDeleteRows = false;
             this.dgv_LichChieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_LichChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LichChieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_LichChieu.Location = new System.Drawing.Point(3, 30);
             this.dgv_LichChieu.Name = "dgv_LichChieu";
+            this.dgv_LichChieu.ReadOnly = true;
             this.dgv_LichChieu.RowHeadersWidth = 51;
             this.dgv_LichChieu.RowTemplate.Height = 24;
-            this.dgv_LichChieu.Size = new System.Drawing.Size(1226, 353);
+            this.dgv_LichChieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_LichChieu.Size = new System.Drawing.Size(1226, 529);
             this.dgv_LichChieu.TabIndex = 0;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.gb_CapNhat);
-            this.splitContainer1.Size = new System.Drawing.Size(1232, 467);
-            this.splitContainer1.SplitterDistance = 551;
-            this.splitContainer1.TabIndex = 2;
+            this.dgv_LichChieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LichChieu_CellClick);
             // 
             // gb_CapNhat
             // 
-            this.gb_CapNhat.Controls.Add(this.button3);
-            this.gb_CapNhat.Controls.Add(this.button2);
-            this.gb_CapNhat.Controls.Add(this.button1);
-            this.gb_CapNhat.Controls.Add(this.comboBox2);
-            this.gb_CapNhat.Controls.Add(this.comboBox1);
-            this.gb_CapNhat.Controls.Add(this.dateTimePicker2);
+            this.gb_CapNhat.Controls.Add(this.btn_Xoa);
+            this.gb_CapNhat.Controls.Add(this.btn_Them);
+            this.gb_CapNhat.Controls.Add(this.cb_Phim);
+            this.gb_CapNhat.Controls.Add(this.cb_PhongChieu);
+            this.gb_CapNhat.Controls.Add(this.datePicker_NgayChieu);
             this.gb_CapNhat.Controls.Add(this.label4);
-            this.gb_CapNhat.Controls.Add(this.dateTimePicker1);
+            this.gb_CapNhat.Controls.Add(this.timePicker_KhungGio);
             this.gb_CapNhat.Controls.Add(this.label3);
             this.gb_CapNhat.Controls.Add(this.label2);
             this.gb_CapNhat.Controls.Add(this.label1);
@@ -105,92 +91,88 @@
             this.gb_CapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_CapNhat.Location = new System.Drawing.Point(0, 0);
             this.gb_CapNhat.Name = "gb_CapNhat";
-            this.gb_CapNhat.Size = new System.Drawing.Size(551, 467);
-            this.gb_CapNhat.TabIndex = 12;
+            this.gb_CapNhat.Size = new System.Drawing.Size(1232, 291);
+            this.gb_CapNhat.TabIndex = 13;
             this.gb_CapNhat.TabStop = false;
             this.gb_CapNhat.Text = "Cập nhật lịch chiếu";
             // 
-            // button3
+            // btn_Xoa
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(355, 354);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 59);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Enabled = false;
+            this.btn_Xoa.Location = new System.Drawing.Point(936, 181);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(201, 47);
+            this.btn_Xoa.TabIndex = 22;
+            this.btn_Xoa.Text = "Xóa lịch chiếu";
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
-            // button2
+            // btn_Them
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(203, 354);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 59);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Them.Location = new System.Drawing.Point(936, 92);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(201, 47);
+            this.btn_Them.TabIndex = 20;
+            this.btn_Them.Text = "Thêm lịch chiếu";
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // button1
+            // cb_Phim
             // 
-            this.button1.Location = new System.Drawing.Point(47, 354);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 59);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cb_Phim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Phim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_Phim.FormattingEnabled = true;
+            this.cb_Phim.Location = new System.Drawing.Point(204, 145);
+            this.cb_Phim.Name = "cb_Phim";
+            this.cb_Phim.Size = new System.Drawing.Size(528, 33);
+            this.cb_Phim.TabIndex = 19;
             // 
-            // comboBox2
+            // cb_PhongChieu
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(214, 106);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(235, 33);
-            this.comboBox2.TabIndex = 19;
+            this.cb_PhongChieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_PhongChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_PhongChieu.FormattingEnabled = true;
+            this.cb_PhongChieu.Location = new System.Drawing.Point(204, 71);
+            this.cb_PhongChieu.Name = "cb_PhongChieu";
+            this.cb_PhongChieu.Size = new System.Drawing.Size(96, 33);
+            this.cb_PhongChieu.TabIndex = 18;
             // 
-            // comboBox1
+            // datePicker_NgayChieu
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(214, 35);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(235, 33);
-            this.comboBox1.TabIndex = 18;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(214, 255);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(161, 30);
-            this.dateTimePicker2.TabIndex = 17;
+            this.datePicker_NgayChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePicker_NgayChieu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker_NgayChieu.Location = new System.Drawing.Point(569, 217);
+            this.datePicker_NgayChieu.Name = "datePicker_NgayChieu";
+            this.datePicker_NgayChieu.Size = new System.Drawing.Size(161, 30);
+            this.datePicker_NgayChieu.TabIndex = 17;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 260);
+            this.label4.Location = new System.Drawing.Point(394, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 25);
             this.label4.TabIndex = 16;
             this.label4.Text = "Ngày chiếu";
             // 
-            // dateTimePicker1
+            // timePicker_KhungGio
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(214, 183);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(161, 30);
-            this.dateTimePicker1.TabIndex = 15;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 6, 20, 14, 58, 0, 0);
+            this.timePicker_KhungGio.CustomFormat = "HH:mm";
+            this.timePicker_KhungGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timePicker_KhungGio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timePicker_KhungGio.Location = new System.Drawing.Point(204, 217);
+            this.timePicker_KhungGio.Name = "timePicker_KhungGio";
+            this.timePicker_KhungGio.ShowUpDown = true;
+            this.timePicker_KhungGio.Size = new System.Drawing.Size(96, 30);
+            this.timePicker_KhungGio.TabIndex = 15;
+            this.timePicker_KhungGio.Value = new System.DateTime(2022, 6, 20, 12, 0, 0, 0);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 188);
+            this.label3.Location = new System.Drawing.Point(29, 222);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 25);
             this.label3.TabIndex = 14;
@@ -200,7 +182,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 38);
+            this.label2.Location = new System.Drawing.Point(29, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 25);
             this.label2.TabIndex = 13;
@@ -210,7 +192,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 109);
+            this.label1.Location = new System.Drawing.Point(29, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 25);
             this.label1.TabIndex = 12;
@@ -221,16 +203,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 853);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.gb_CapNhat);
             this.Controls.Add(this.gb_LichChieu);
             this.Name = "LichChieu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LichChieu_Load);
             this.gb_LichChieu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LichChieu)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.gb_CapNhat.ResumeLayout(false);
             this.gb_CapNhat.PerformLayout();
             this.ResumeLayout(false);
@@ -241,16 +220,14 @@
 
         private System.Windows.Forms.GroupBox gb_LichChieu;
         private System.Windows.Forms.DataGridView dgv_LichChieu;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox gb_CapNhat;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button btn_Xoa;
+        private System.Windows.Forms.Button btn_Them;
+        private System.Windows.Forms.ComboBox cb_Phim;
+        private System.Windows.Forms.ComboBox cb_PhongChieu;
+        private System.Windows.Forms.DateTimePicker datePicker_NgayChieu;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker timePicker_KhungGio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

@@ -178,7 +178,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(169, 51);
             this.button3.TabIndex = 28;
-            this.button3.Text = "In hóa đơn";
+            this.button3.Text = "Thanh Toán";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // label7
