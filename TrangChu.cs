@@ -105,6 +105,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
         {
             TaoHoaDon FormTaoHoaDon = new TaoHoaDon();
+            FormTaoHoaDon.LoginAccount = this.LoginAccount;
             openChildForm(FormTaoHoaDon);
         }
 

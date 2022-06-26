@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_test = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_CapNhat = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -50,7 +49,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(76)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btn_test);
             this.panel1.Controls.Add(this.btn_Exit);
             this.panel1.Controls.Add(this.btn_CapNhat);
             this.panel1.Controls.Add(this.button5);
@@ -64,23 +62,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 900);
             this.panel1.TabIndex = 0;
-            // 
-            // btn_test
-            // 
-            this.btn_test.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_test.FlatAppearance.BorderSize = 0;
-            this.btn_test.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_test.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_test.Location = new System.Drawing.Point(0, 520);
-            this.btn_test.Name = "btn_test";
-            this.btn_test.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.btn_test.Size = new System.Drawing.Size(298, 57);
-            this.btn_test.TabIndex = 8;
-            this.btn_test.Text = "test";
-            this.btn_test.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_test.UseVisualStyleBackColor = true;
-            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
             // btn_Exit
             // 
@@ -279,7 +260,6 @@
         private System.Windows.Forms.Button btn_CapNhat;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btn_Exit;
-        private System.Windows.Forms.Button btn_test;
         public System.Windows.Forms.TextBox tb_AccountName;
         public System.Windows.Forms.Panel panel1;
     }
