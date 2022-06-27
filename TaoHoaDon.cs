@@ -348,24 +348,33 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                 MessageBox.Show("Không có sản phẩm !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (checkbox_TheTV.Checked)
+            DialogResult result = MessageBox.Show("Xác nhận thanh toán ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-               if (CardValid)
-               {
-                    ThemHoaDon(tb_TheTV.Text);
+                if (checkbox_TheTV.Checked)
+                {
+                    if (CardValid)
+                    {
+                        ThemHoaDon(tb_TheTV.Text);
+                        dgv_SanPham.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã thẻ sử dụng không hợp lệ !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    ThemHoaDon();
                     dgv_SanPham.Rows.Clear();
-               }
-               else
-               {
-                    MessageBox.Show("Mã thẻ sử dụng không hợp lệ !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-               }
+                }
             }
-            else
-            {
-                ThemHoaDon();
-                dgv_SanPham.Rows.Clear();
-            }
+        }
+
+        private void TaoHoaDon_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            conn.Close();
         }
     }
 }

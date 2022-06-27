@@ -99,6 +99,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         private void btn_TaoVePhim_Click(object sender, EventArgs e)
         {
             TaoVePhim FormTaoVePhim = new TaoVePhim();
+            FormTaoVePhim.LoginAccount = this.LoginAccount;
             openChildForm(FormTaoVePhim);
         }
 

@@ -21,7 +21,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         int dgvLC_SelectedIndex = -1;
         private int getMovieID(string filmName)
         {
-            string sql = "Select MaPhim FROM Phim WHERE TenPhim = '" + filmName + "'";
+            string sql = "Select MaPhim FROM Phim WHERE TenPhim = N'" + filmName + "'";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
             DataTable IDtable = new DataTable(); 
             adapter.Fill(IDtable);

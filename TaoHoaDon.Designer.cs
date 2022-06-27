@@ -41,13 +41,13 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.dgv_SanPham = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lb_ThongBao = new System.Windows.Forms.Label();
             this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lb_ThongBao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.InputSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SanPham)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -206,28 +206,6 @@
             this.dgv_SanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_SanPham_CellClick);
             this.dgv_SanPham.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_SanPham_CellEndEdit);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dgv_SanPham);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 348);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1232, 405);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hóa đơn";
-            // 
-            // lb_ThongBao
-            // 
-            this.lb_ThongBao.AutoSize = true;
-            this.lb_ThongBao.Location = new System.Drawing.Point(857, 161);
-            this.lb_ThongBao.Name = "lb_ThongBao";
-            this.lb_ThongBao.Size = new System.Drawing.Size(73, 16);
-            this.lb_ThongBao.TabIndex = 29;
-            this.lb_ThongBao.Text = "Thông báo";
-            this.lb_ThongBao.Visible = false;
-            // 
             // MaSanPham
             // 
             this.MaSanPham.HeaderText = "Mã sản phẩm";
@@ -262,6 +240,28 @@
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgv_SanPham);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 348);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1232, 405);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Hóa đơn";
+            // 
+            // lb_ThongBao
+            // 
+            this.lb_ThongBao.AutoSize = true;
+            this.lb_ThongBao.Location = new System.Drawing.Point(857, 161);
+            this.lb_ThongBao.Name = "lb_ThongBao";
+            this.lb_ThongBao.Size = new System.Drawing.Size(73, 16);
+            this.lb_ThongBao.TabIndex = 29;
+            this.lb_ThongBao.Text = "Thông báo";
+            this.lb_ThongBao.Visible = false;
+            // 
             // TaoHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -284,6 +284,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TaoHoaDon";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TaoHoaDon_FormClosed);
             this.Load += new System.EventHandler(this.TaoHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.InputSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SanPham)).EndInit();

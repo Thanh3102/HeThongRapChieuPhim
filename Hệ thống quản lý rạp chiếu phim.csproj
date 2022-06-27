@@ -53,6 +53,12 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrangThaiGhe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrangThaiGhe.Designer.cs">
+      <DependentUpon>TrangThaiGhe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormThemPhim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TrangThaiGhe.resx">
+      <DependentUpon>TrangThaiGhe.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
