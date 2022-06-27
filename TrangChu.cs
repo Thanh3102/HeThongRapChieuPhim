@@ -88,6 +88,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         private void TrangChu_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(DangNhap.connectionString);
+            conn.Open();
             tb_AccountName.Text = "Tài khoản: " + LoginAccount.getHoTen(conn);
         }
 
@@ -112,15 +113,32 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = DateTime.ParseExact("24-06-2022:23:00:00", "dd-MM-yyyy:HH:mm:ss", null);
-            DateTime dateTime2 = DateTime.ParseExact("25-06-2022:13:00:00", "dd-MM-yyyy:HH:mm:ss", null);
-            DateTime dateTime1 = DateTime.ParseExact("25-06-2022", "dd-MM-yyyy", null);
-            TimeSpan time = TimeSpan.Parse("02:15:00");
-            /*MessageBox.Show(dateTime.AddHours(2).ToString());*/
-            /* MessageBox.Show(DateTime.Now.ToString("yyyy-MM-dd"));*/
-            /*MessageBox.Show((dateTime.CompareTo(dateTime2).ToString()));*/
-            /*MessageBox.Show(dateTime.Add(time).ToString());*/
-            DateTime dateStart = dateTime1.Add(time);
+            /*            DateTime dateTime = DateTime.ParseExact("24-06-2022:23:00:00", "dd-MM-yyyy:HH:mm:ss", null);
+                        DateTime dateTime2 = DateTime.ParseExact("25-06-2022:13:00:00", "dd-MM-yyyy:HH:mm:ss", null);
+                        DateTime dateTime1 = DateTime.ParseExact("25-06-2022", "dd-MM-yyyy", null);
+                        TimeSpan time = TimeSpan.Parse("02:15:00");
+                        MessageBox.Show(dateTime.AddHours(2).ToString());
+                        MessageBox.Show(DateTime.Now.ToString("yyyy-MM-dd"));
+                        MessageBox.Show((dateTime.CompareTo(dateTime2).ToString()));
+                        MessageBox.Show(dateTime.Add(time).ToString());
+                        DateTime dateStart = dateTime1.Add(time);*/
+/*            string MaPhong = "MP05";
+            string[] array = { "A", "B", "C", "D", "E" };
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Insert Into Ghe VALUES (@ViTriGhe, @MaPhong)";
+            cmd.Parameters.Add("@ViTriGhe",SqlDbType.NVarChar, 5);
+            cmd.Parameters.Add("@MaPhong", SqlDbType.NVarChar, 5);
+            foreach(string str in array)
+            {
+                for (int i=1;i <= 5; i++)
+                {
+                    cmd.Parameters["@ViTriGhe"].Value = str + i.ToString();
+                    cmd.Parameters["@MaPhong"].Value = MaPhong;
+                    cmd.ExecuteNonQuery();
+                }
+            }*/
+            
         }
 
         private void btn_CapNhat_Click(object sender, EventArgs e)

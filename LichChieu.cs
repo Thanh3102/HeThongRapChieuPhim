@@ -86,6 +86,51 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             adapter.Fill(LichChieu);
             dgv_LichChieu.DataSource = LichChieu;
         }
+        private int getLastID()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT TOP 1 * FROM LichChieu ORDER BY ID DESC", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            if (dt.Rows.Count == 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return dt.Rows[0].Field<int>("ID");
+            }
+        }
+        private void AddSeatState()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT TOP 1 * FROM LichChieu ORDER BY ID DESC", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            int id = dt.Rows[0].Field<int>("ID"); // Lấy ID lịch chiếu mới thêm vào
+            string MaPhong = dt.Rows[0].Field<string>("MaPhong").ToString(); // Lấy mã phòng
+
+            // Lấy tất cả vị trí ghế của phòng
+            adapter = new SqlDataAdapter("SELECT * From Ghe Where MaPhong = '" + MaPhong + "'", conn);
+            DataTable SeatList = new DataTable();
+            adapter.Fill(SeatList);
+
+            // Set tất cả trạng thái = trống trong bảng trạng thái ghế
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "INSERT INTO TrangThaiGhe VALUES (@IDLichChieu, @MaGhe, @TrangThai)";
+            cmd.Parameters.Add("@IDLichChieu", SqlDbType.Int);
+            cmd.Parameters.Add("@MaGhe", SqlDbType.Int);
+            cmd.Parameters.Add("@TrangThai", SqlDbType.Bit);
+            foreach(DataRow dr in SeatList.Rows)
+            {
+                cmd.Parameters["@IDLichChieu"].Value = id;
+                cmd.Parameters["@MaGhe"].Value = dr.Field<int>("MaGhe");
+                cmd.Parameters["@TrangThai"].Value = false;
+                cmd.ExecuteNonQuery();
+            }
+
+
+        }
         private void LichChieu_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(DangNhap.connectionString);
@@ -112,31 +157,25 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            try
+            if (cb_Phim.SelectedIndex == -1 || cb_PhongChieu.SelectedIndex == -1)
             {
-                if (cb_Phim.SelectedIndex == -1 || cb_PhongChieu.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Chưa chọn phim hoặc phòng chiếu !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (!isDuplicate(getMovieID(cb_Phim.Text), datePicker_NgayChieu.Value, TimeSpan.Parse(timePicker_KhungGio.Text), cb_PhongChieu.Text))
-                    {
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = conn;
-                        cmd.CommandText = "INSERT INTO LichChieu VALUES (@MaPhim, @NgayChieu, @KhungGio, @MaPhong)";
-                        cmd.Parameters.AddWithValue("@MaPhim", getMovieID(cb_Phim.Text));
-                        cmd.Parameters.AddWithValue("@NgayChieu", datePicker_NgayChieu.Value);
-                        cmd.Parameters.AddWithValue("@KhungGio", TimeSpan.Parse(timePicker_KhungGio.Text));
-                        cmd.Parameters.AddWithValue("@MaPhong", cb_PhongChieu.Text);
-                        cmd.ExecuteNonQuery();
-                        LoadLichChieu();
-                    }
-                }
+                MessageBox.Show("Chưa chọn phim hoặc phòng chiếu !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                if (!isDuplicate(getMovieID(cb_Phim.Text), datePicker_NgayChieu.Value, TimeSpan.Parse(timePicker_KhungGio.Text), cb_PhongChieu.Text))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO LichChieu VALUES (@MaPhim, @NgayChieu, @KhungGio, @MaPhong)";
+                    cmd.Parameters.AddWithValue("@MaPhim", getMovieID(cb_Phim.Text));
+                    cmd.Parameters.AddWithValue("@NgayChieu", datePicker_NgayChieu.Value);
+                    cmd.Parameters.AddWithValue("@KhungGio", TimeSpan.Parse(timePicker_KhungGio.Text));
+                    cmd.Parameters.AddWithValue("@MaPhong", cb_PhongChieu.Text);
+                    cmd.ExecuteNonQuery();
+                    LoadLichChieu();
+                    AddSeatState();
+                }
             }
         }
 

@@ -39,18 +39,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_TheTV = new System.Windows.Forms.TextBox();
             this.checkbox_TheTV = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_ViTriGhe = new System.Windows.Forms.Button();
             this.tb_ViTriGhe = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_ThanhTien = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dgv_TicketList = new System.Windows.Forms.DataGridView();
+            this.btn_CreateTicket = new System.Windows.Forms.Button();
+            this.btn_ThanhToan = new System.Windows.Forms.Button();
+            this.btn_DeleteTicket = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.datePicker_NgayChieu = new System.Windows.Forms.DateTimePicker();
+            this.lb_ThongBao = new System.Windows.Forms.Label();
+            this.MovieName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieDateShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieTimeStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeatStatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_TicketList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +99,7 @@
             this.cb_KhungGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_KhungGio.FormattingEnabled = true;
             this.cb_KhungGio.Location = new System.Drawing.Point(518, 162);
+            this.cb_KhungGio.MaxDropDownItems = 5;
             this.cb_KhungGio.Name = "cb_KhungGio";
             this.cb_KhungGio.Size = new System.Drawing.Size(127, 33);
             this.cb_KhungGio.TabIndex = 5;
@@ -151,6 +162,7 @@
             this.tb_TheTV.Name = "tb_TheTV";
             this.tb_TheTV.Size = new System.Drawing.Size(286, 30);
             this.tb_TheTV.TabIndex = 10;
+            this.tb_TheTV.TextChanged += new System.EventHandler(this.tb_TheTV_TextChanged);
             // 
             // checkbox_TheTV
             // 
@@ -163,14 +175,15 @@
             this.checkbox_TheTV.UseVisualStyleBackColor = true;
             this.checkbox_TheTV.CheckedChanged += new System.EventHandler(this.checkbox_TheTV_CheckedChanged);
             // 
-            // button1
+            // btn_ViTriGhe
             // 
-            this.button1.Location = new System.Drawing.Point(521, 282);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Chọn vị trí ghế";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_ViTriGhe.Location = new System.Drawing.Point(521, 282);
+            this.btn_ViTriGhe.Name = "btn_ViTriGhe";
+            this.btn_ViTriGhe.Size = new System.Drawing.Size(125, 30);
+            this.btn_ViTriGhe.TabIndex = 12;
+            this.btn_ViTriGhe.Text = "Chọn vị trí ghế";
+            this.btn_ViTriGhe.UseVisualStyleBackColor = true;
+            this.btn_ViTriGhe.Click += new System.EventHandler(this.btn_ViTriGhe_Click);
             // 
             // tb_ViTriGhe
             // 
@@ -182,19 +195,19 @@
             this.tb_ViTriGhe.Size = new System.Drawing.Size(125, 30);
             this.tb_ViTriGhe.TabIndex = 13;
             // 
-            // label7
+            // lb_ThanhTien
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(706, 238);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 29);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Thành tiền:";
+            this.lb_ThanhTien.AutoSize = true;
+            this.lb_ThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ThanhTien.Location = new System.Drawing.Point(706, 238);
+            this.lb_ThanhTien.Name = "lb_ThanhTien";
+            this.lb_ThanhTien.Size = new System.Drawing.Size(132, 29);
+            this.lb_ThanhTien.TabIndex = 14;
+            this.lb_ThanhTien.Text = "Thành tiền:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgv_TicketList);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 426);
@@ -204,45 +217,61 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách vé hiện tại";
             // 
-            // dataGridView1
+            // dgv_TicketList
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1226, 395);
-            this.dataGridView1.TabIndex = 2;
+            this.dgv_TicketList.AllowUserToAddRows = false;
+            this.dgv_TicketList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_TicketList.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgv_TicketList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_TicketList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MovieName,
+            this.MovieDateShow,
+            this.MovieTimeStart,
+            this.MovieRoom,
+            this.Seat,
+            this.Price,
+            this.SeatID,
+            this.SeatStatusID,
+            this.MovieID});
+            this.dgv_TicketList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_TicketList.Location = new System.Drawing.Point(3, 26);
+            this.dgv_TicketList.Name = "dgv_TicketList";
+            this.dgv_TicketList.RowHeadersWidth = 51;
+            this.dgv_TicketList.RowTemplate.Height = 24;
+            this.dgv_TicketList.Size = new System.Drawing.Size(1226, 395);
+            this.dgv_TicketList.TabIndex = 2;
+            this.dgv_TicketList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_TicketList_CellClick);
             // 
-            // button2
+            // btn_CreateTicket
             // 
-            this.button2.Location = new System.Drawing.Point(30, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 40);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Tạo vé";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_CreateTicket.Location = new System.Drawing.Point(30, 337);
+            this.btn_CreateTicket.Name = "btn_CreateTicket";
+            this.btn_CreateTicket.Size = new System.Drawing.Size(122, 40);
+            this.btn_CreateTicket.TabIndex = 16;
+            this.btn_CreateTicket.Text = "Tạo vé";
+            this.btn_CreateTicket.UseVisualStyleBackColor = true;
+            this.btn_CreateTicket.Click += new System.EventHandler(this.btn_CreateTicket_Click);
             // 
-            // button3
+            // btn_ThanhToan
             // 
-            this.button3.Location = new System.Drawing.Point(1051, 369);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 51);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Thanh toán";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_ThanhToan.Location = new System.Drawing.Point(1051, 369);
+            this.btn_ThanhToan.Name = "btn_ThanhToan";
+            this.btn_ThanhToan.Size = new System.Drawing.Size(169, 51);
+            this.btn_ThanhToan.TabIndex = 17;
+            this.btn_ThanhToan.Text = "Thanh toán";
+            this.btn_ThanhToan.UseVisualStyleBackColor = true;
+            this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
-            // button4
+            // btn_DeleteTicket
             // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(190, 337);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(122, 40);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Xóa vé";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_DeleteTicket.Enabled = false;
+            this.btn_DeleteTicket.Location = new System.Drawing.Point(190, 337);
+            this.btn_DeleteTicket.Name = "btn_DeleteTicket";
+            this.btn_DeleteTicket.Size = new System.Drawing.Size(122, 40);
+            this.btn_DeleteTicket.TabIndex = 18;
+            this.btn_DeleteTicket.Text = "Xóa vé";
+            this.btn_DeleteTicket.UseVisualStyleBackColor = true;
+            this.btn_DeleteTicket.Click += new System.EventHandler(this.btn_DeleteTicket_Click);
             // 
             // label8
             // 
@@ -265,20 +294,97 @@
             this.datePicker_NgayChieu.TabIndex = 20;
             this.datePicker_NgayChieu.ValueChanged += new System.EventHandler(this.datePicker_NgayChieu_ValueChanged);
             // 
+            // lb_ThongBao
+            // 
+            this.lb_ThongBao.AutoSize = true;
+            this.lb_ThongBao.Location = new System.Drawing.Point(919, 133);
+            this.lb_ThongBao.Name = "lb_ThongBao";
+            this.lb_ThongBao.Size = new System.Drawing.Size(73, 16);
+            this.lb_ThongBao.TabIndex = 30;
+            this.lb_ThongBao.Text = "Thông báo";
+            this.lb_ThongBao.Visible = false;
+            // 
+            // MovieName
+            // 
+            this.MovieName.HeaderText = "Tên phim";
+            this.MovieName.MinimumWidth = 6;
+            this.MovieName.Name = "MovieName";
+            this.MovieName.ReadOnly = true;
+            // 
+            // MovieDateShow
+            // 
+            this.MovieDateShow.HeaderText = "Ngày chiếu";
+            this.MovieDateShow.MinimumWidth = 6;
+            this.MovieDateShow.Name = "MovieDateShow";
+            this.MovieDateShow.ReadOnly = true;
+            // 
+            // MovieTimeStart
+            // 
+            this.MovieTimeStart.HeaderText = "Khung giờ";
+            this.MovieTimeStart.MinimumWidth = 6;
+            this.MovieTimeStart.Name = "MovieTimeStart";
+            this.MovieTimeStart.ReadOnly = true;
+            // 
+            // MovieRoom
+            // 
+            this.MovieRoom.HeaderText = "Phòng chiếu";
+            this.MovieRoom.MinimumWidth = 6;
+            this.MovieRoom.Name = "MovieRoom";
+            this.MovieRoom.ReadOnly = true;
+            // 
+            // Seat
+            // 
+            this.Seat.HeaderText = "Vị trí ghế";
+            this.Seat.MinimumWidth = 6;
+            this.Seat.Name = "Seat";
+            this.Seat.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Giá vé";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // SeatID
+            // 
+            this.SeatID.HeaderText = "ID Ghế";
+            this.SeatID.MinimumWidth = 6;
+            this.SeatID.Name = "SeatID";
+            this.SeatID.ReadOnly = true;
+            this.SeatID.Visible = false;
+            // 
+            // SeatStatusID
+            // 
+            this.SeatStatusID.HeaderText = "ID Trạng Thái ghế";
+            this.SeatStatusID.MinimumWidth = 6;
+            this.SeatStatusID.Name = "SeatStatusID";
+            this.SeatStatusID.ReadOnly = true;
+            this.SeatStatusID.Visible = false;
+            // 
+            // MovieID
+            // 
+            this.MovieID.HeaderText = "Mã phim";
+            this.MovieID.MinimumWidth = 6;
+            this.MovieID.Name = "MovieID";
+            this.MovieID.ReadOnly = true;
+            this.MovieID.Visible = false;
+            // 
             // TaoVePhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 850);
+            this.Controls.Add(this.lb_ThongBao);
             this.Controls.Add(this.datePicker_NgayChieu);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_DeleteTicket);
+            this.Controls.Add(this.btn_ThanhToan);
+            this.Controls.Add(this.btn_CreateTicket);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lb_ThanhTien);
             this.Controls.Add(this.tb_ViTriGhe);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_ViTriGhe);
             this.Controls.Add(this.checkbox_TheTV);
             this.Controls.Add(this.tb_TheTV);
             this.Controls.Add(this.label6);
@@ -293,9 +399,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TaoVePhim";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TaoVePhim_FormClosing);
             this.Load += new System.EventHandler(this.TaoVePhim_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_TicketList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,21 +415,31 @@
         private System.Windows.Forms.ComboBox cb_Phim;
         private System.Windows.Forms.ComboBox cb_KhungGio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cb_Phong;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_TheTV;
         private System.Windows.Forms.CheckBox checkbox_TheTV;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tb_ViTriGhe;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_ViTriGhe;
+        private System.Windows.Forms.Label lb_ThanhTien;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dgv_TicketList;
+        private System.Windows.Forms.Button btn_CreateTicket;
+        private System.Windows.Forms.Button btn_ThanhToan;
+        private System.Windows.Forms.Button btn_DeleteTicket;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker datePicker_NgayChieu;
+        public System.Windows.Forms.TextBox tb_ViTriGhe;
+        private System.Windows.Forms.ComboBox cb_Phong;
+        private System.Windows.Forms.Label lb_ThongBao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MovieName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MovieDateShow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MovieTimeStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MovieRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Seat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SeatID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SeatStatusID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MovieID;
     }
 }
