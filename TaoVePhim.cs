@@ -70,7 +70,10 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                     cb_Phong.DataSource = null;
                     return;
                 }
-                string query = "Select ID, MaPhong From LichChieu Where NgayChieu = '" + datePicker_NgayChieu.Value.ToString("yyyy-MM-dd") + "'";
+                MessageBox.Show("Ngày chiếu: " + datePicker_NgayChieu.Value.ToString("yyyy-MM-dd")
+                    + "\nMaPhong: " + cb_Phim.SelectedValue
+                    + "\nKhungGio: " + cb_KhungGio.Text);
+                string query = "Select ID, MaPhong From LichChieu Where NgayChieu = '" + datePicker_NgayChieu.Value.ToString("yyyy-MM-dd") + "' and MaPhim = '" + cb_Phim.SelectedValue +  "' and KhungGio = '" + cb_KhungGio.Text + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -96,7 +99,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
            loadMovieStartTime();
         }
 
-        private void cb_KhungGio_DropDownClosed(object sender, EventArgs e)
+        private void cb_KhungGio_TextChanged(object sender, EventArgs e)
         {
             loadMovieRoom();
         }

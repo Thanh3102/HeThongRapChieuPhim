@@ -92,7 +92,7 @@
             this.cb_KhungGio.Name = "cb_KhungGio";
             this.cb_KhungGio.Size = new System.Drawing.Size(127, 33);
             this.cb_KhungGio.TabIndex = 5;
-            this.cb_KhungGio.DropDownClosed += new System.EventHandler(this.cb_KhungGio_DropDownClosed);
+            this.cb_KhungGio.TextChanged += new System.EventHandler(this.cb_KhungGio_TextChanged);
             // 
             // label3
             // 
