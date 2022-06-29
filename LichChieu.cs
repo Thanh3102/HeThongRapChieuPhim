@@ -184,9 +184,12 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             DialogResult result =  MessageBox.Show("Xác nhận xóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                SqlCommand cmd = new SqlCommand("Delete From LichChieu Where ID = '" + dgv_LichChieu.Rows[dgvLC_SelectedIndex].Cells["ID"].Value.ToString() + "'", conn);
+                SqlCommand cmd = new SqlCommand("Delete From TrangThaiGhe Where IDLichChieu = '" + dgv_LichChieu.Rows[dgvLC_SelectedIndex].Cells["ID"].Value.ToString() + "'", conn);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("Delete From LichChieu Where ID = '" + dgv_LichChieu.Rows[dgvLC_SelectedIndex].Cells["ID"].Value.ToString() + "'", conn);
                 cmd.ExecuteNonQuery();
                 LoadLichChieu();
+                btn_Xoa.Enabled = false;
             }
         }
 

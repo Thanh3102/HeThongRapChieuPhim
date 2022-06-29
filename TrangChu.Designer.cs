@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_CapNhat = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_ThongKe = new System.Windows.Forms.Button();
             this.btn_TaoHoaDon = new System.Windows.Forms.Button();
             this.btn_TaoVePhim = new System.Windows.Forms.Button();
             this.btn_TaoThe = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btn_Exit);
             this.panel1.Controls.Add(this.btn_CapNhat);
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.btn_ThongKe);
             this.panel1.Controls.Add(this.btn_TaoHoaDon);
             this.panel1.Controls.Add(this.btn_TaoVePhim);
             this.panel1.Controls.Add(this.btn_TaoThe);
@@ -95,21 +95,22 @@
             this.btn_CapNhat.UseVisualStyleBackColor = true;
             this.btn_CapNhat.Click += new System.EventHandler(this.btn_CapNhat_Click);
             // 
-            // button5
+            // btn_ThongKe
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(0, 406);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(298, 57);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Thống kê";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_ThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ThongKe.FlatAppearance.BorderSize = 0;
+            this.btn_ThongKe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_ThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThongKe.Location = new System.Drawing.Point(0, 406);
+            this.btn_ThongKe.Name = "btn_ThongKe";
+            this.btn_ThongKe.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btn_ThongKe.Size = new System.Drawing.Size(298, 57);
+            this.btn_ThongKe.TabIndex = 5;
+            this.btn_ThongKe.Text = "Thống kê";
+            this.btn_ThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ThongKe.UseVisualStyleBackColor = true;
+            this.btn_ThongKe.Click += new System.EventHandler(this.btn_ThongKe_Click);
             // 
             // btn_TaoHoaDon
             // 
@@ -258,7 +259,7 @@
         private System.Windows.Forms.Button btn_DSPhim;
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Button btn_CapNhat;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_ThongKe;
         private System.Windows.Forms.Button btn_Exit;
         public System.Windows.Forms.TextBox tb_AccountName;
         public System.Windows.Forms.Panel panel1;

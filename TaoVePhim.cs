@@ -344,13 +344,27 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             cmd.Parameters.Add("@MaNhanVien", SqlDbType.Int);
             cmd.Parameters.Add("@MaThe", SqlDbType.Int);
 
+            string LoaiThe = getCardType(MaThe);
+            double Discount = 1;
+            switch (LoaiThe)
+            {
+                case "ThanhVien":
+                    Discount = 0.95;
+                    break;
+                case "VIP":
+                    Discount = 0.93;
+                    break;
+                case "VVIP":
+                    Discount = 0.9;
+                    break;
+            }
             foreach(DataGridViewRow dr in dgv_TicketList.Rows)
             {
                 cmd.Parameters["@MaPhim"].Value = Convert.ToInt32(dr.Cells["MovieID"].Value);
                 cmd.Parameters["@KhungGio"].Value = TimeSpan.Parse(dr.Cells["MovieTimeStart"].Value.ToString());
                 cmd.Parameters["@MaPhong"].Value = dr.Cells["MovieRoom"].Value.ToString();
                 cmd.Parameters["@MaGhe"].Value = Convert.ToInt32(dr.Cells["SeatID"].Value);
-                cmd.Parameters["@ThanhTien"].Value = Convert.ToInt32(dr.Cells["Price"].Value);
+                cmd.Parameters["@ThanhTien"].Value = Convert.ToInt32(dr.Cells["Price"].Value) * Discount;
                 cmd.Parameters["@NgayChieu"].Value = DateTime.ParseExact(dr.Cells["MovieDateShow"].Value.ToString(), "dd/MM/yyyy", null);
                 cmd.Parameters["@MaNhanVien"].Value = this.LoginAccount.getID(conn);
                 cmd.Parameters["@MaThe"].Value = Convert.ToInt32(tb_TheTV.Text);
@@ -397,6 +411,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         }
         private void UpdateTradeValue(string MaThe) {
             {
+                getCardType(MaThe);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE TheThanhVien SET GiaTriGiaoDich = GiaTriGiaoDich + @GiaTriGiaoDich Where MaThe = '" + MaThe + "'";

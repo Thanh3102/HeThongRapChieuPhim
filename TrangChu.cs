@@ -146,5 +146,11 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             LichChieu formLichChieu = new LichChieu();
             openChildForm(formLichChieu);
         }
+
+        private void btn_ThongKe_Click(object sender, EventArgs e)
+        {
+            ThongKe formThongKe = new ThongKe();
+            openChildForm(formThongKe);
+        }
     }
 }
