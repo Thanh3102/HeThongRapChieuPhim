@@ -165,16 +165,21 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             {
                 if (!isDuplicate(getMovieID(cb_Phim.Text), datePicker_NgayChieu.Value, TimeSpan.Parse(timePicker_KhungGio.Text), cb_PhongChieu.Text))
                 {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO LichChieu VALUES (@MaPhim, @NgayChieu, @KhungGio, @MaPhong)";
-                    cmd.Parameters.AddWithValue("@MaPhim", getMovieID(cb_Phim.Text));
-                    cmd.Parameters.AddWithValue("@NgayChieu", datePicker_NgayChieu.Value);
-                    cmd.Parameters.AddWithValue("@KhungGio", TimeSpan.Parse(timePicker_KhungGio.Text));
-                    cmd.Parameters.AddWithValue("@MaPhong", cb_PhongChieu.Text);
-                    cmd.ExecuteNonQuery();
-                    LoadLichChieu();
-                    AddSeatState();
+                    DialogResult result = MessageBox.Show("Xác nhận lưu ?", "Thông báo",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(result == DialogResult.Yes)
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = conn;
+                        cmd.CommandText = "INSERT INTO LichChieu VALUES (@MaPhim, @NgayChieu, @KhungGio, @MaPhong)";
+                        cmd.Parameters.AddWithValue("@MaPhim", getMovieID(cb_Phim.Text));
+                        cmd.Parameters.AddWithValue("@NgayChieu", datePicker_NgayChieu.Value);
+                        cmd.Parameters.AddWithValue("@KhungGio", TimeSpan.Parse(timePicker_KhungGio.Text));
+                        cmd.Parameters.AddWithValue("@MaPhong", cb_PhongChieu.Text);
+                        cmd.ExecuteNonQuery();
+                        LoadLichChieu();
+                        AddSeatState();
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }

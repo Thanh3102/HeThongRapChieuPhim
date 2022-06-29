@@ -22,6 +22,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         int rowSelect = -1;
         string imgLocation = null;
         bool isImgChange = false;
+        string MovieNameSelect = "";
         private void reloadData()
         {
             string sql = "SELECT * FROM Phim";
@@ -95,6 +96,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                     ((TextBox)c).ReadOnly = false;
                 }
             }
+            MovieNameSelect = tb_TenPhim.Text;
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -117,13 +119,59 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             }
         }
 
+        private bool checkValid()
+        {
+            if (tb_TenPhim.Text == String.Empty || tb_DaoDien.Text == String.Empty || tb_ThoiLuong.Text == String.Empty || tb_TheLoai.Text == String.Empty || tb_QuocGia.Text == String.Empty || tb_NamSX.Text == String.Empty)
+            {
+                MessageBox.Show("Không được để trống thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (tb_NamSX.Text.All(char.IsDigit) == false)
+            {
+                MessageBox.Show("Năm sản xuất chỉ chứa số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private bool isContain()
+        {
+            string query = "Select TenPhim From Phim Where TenPhim = N'" + tb_TenPhim.Text + "'";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            if (dt.Rows.Count != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void emptyInfo()
+        {
+            tb_TenPhim.Text = "";
+            tb_DaoDien.Text = "";
+            tb_TheLoai.Text = "";
+            tb_ThoiLuong.Text = "";
+            tb_NamSX.Text = "";
+            tb_QuocGia.Text = "";
+        }
+
         private void btn_Save_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Lưu thay đổi ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                try
+                if (checkValid())
                 {
+                    if (tb_TenPhim.Text != MovieNameSelect)
+                    {
+                        if (isContain())
+                        {
+                            MessageBox.Show("Tên phim trùng lặp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
                     int id = Convert.ToInt32(dgv_DSPhim.Rows[rowSelect].Cells[0].Value);
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
@@ -160,16 +208,14 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                             ((TextBox)c).ReadOnly = true;
                         }
                     }
+                    FilmImage.Image = null;
                     isImgChange = false;
+                    rowSelect = -1;
+                    emptyInfo();
                     reloadData();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
                 }
             }
         }
-
         private void btn_Change_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -182,18 +228,46 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             }
         }
 
+        private void DeleteSeatStatus(string MovieID)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("Select ID From LichChieu Where MaPhim = " + MovieID, conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            SqlCommand cmd = new SqlCommand("Delete From TrangThaiGhe Where IDLichChieu = @IDLichChieu", conn);
+            cmd.Parameters.Add("@IDLichChieu", SqlDbType.Int);
+            foreach(DataRow dr in dt.Rows)
+            {
+                cmd.Parameters["@IDLichChieu"].Value = dr.Field<int>("ID");
+                cmd.ExecuteNonQuery();
+            }
+        }
+        private void DeleteShow(string MovieID)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "DELETE FROM LichChieu WHERE MaPhim = " + MovieID;
+            cmd.ExecuteNonQuery();
+        }
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(dgv_DSPhim.Rows[rowSelect].Cells[0].Value);
             DialogResult result = MessageBox.Show("Xác nhận xóa thông tin ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                DeleteSeatStatus(id.ToString());
+                DeleteShow(id.ToString());
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "DELETE FROM Phim WHERE MaPhim = " + id.ToString();
                 cmd.ExecuteNonQuery();
                 btn_Save.Visible = false;
                 btn_Cancel.Visible = false;
+                reloadData();
+                FilmImage.Image = null;
+                isImgChange = false;
+                rowSelect = -1;
+                emptyInfo();
                 reloadData();
             }
         }

@@ -71,6 +71,10 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     MessageBox.Show("Tạo thẻ thành công !\nMã thẻ: " + dt.Rows[0].Field<int>("MaThe").ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tb_HoTen.Text = "";
+                    tb_DiaChi.Text = "";
+                    tb_Email.Text = "";
+                    tb_SDT.Text = "";
                 }
                 else
                 {

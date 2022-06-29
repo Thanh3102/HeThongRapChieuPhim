@@ -21,27 +21,65 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
         SqlConnection conn = null;
         string imgLocation = null;
 
+        private bool ValidInput()
+        {
+            if (cb_NamSX.Text == String.Empty || tb_TenPhim.Text == String.Empty || tb_DaoDien.Text == String.Empty || tb_TheLoai.Text == String.Empty || tb_QuocGia.Text == String.Empty)
+            {
+                MessageBox.Show("Có thông tin chưa nhập !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (tb_DaoDien.Text.All(char.IsLetter) == false || tb_TheLoai.Text.All(char.IsLetter) == false || tb_QuocGia.Text.All(char.IsLetter) == false)
+            {
+                MessageBox.Show("Thông tin không hợp lệ !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (imgLocation == null)
+            {
+                MessageBox.Show("Chưa chọn ảnh !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (timePicker_ThoiLuong.Text == "00:00")
+            {
+                MessageBox.Show("Chưa đặt thời lượng phim !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            string query = "Select TenPhim From Phim Where TenPhim = N'" + tb_TenPhim.Text + "'";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            if (dt.Rows.Count != 0)
+            {
+                return false;
+            }
+            return true;
+        }
         private void btn_Save_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Xác nhận lưu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "INSERT INTO Phim VALUES (@TenPhim,@TheLoai,@ThoiLuong,@DaoDien,@NamSX,@QuocGia,@Anh)";
-                cmd.Parameters.AddWithValue("@TenPhim", tb_TenPhim.Text);
-                cmd.Parameters.AddWithValue("@TheLoai", tb_TheLoai.Text);
-                TimeSpan time = TimeSpan.Parse(timePicker_ThoiLuong.Text.ToString());
-                cmd.Parameters.AddWithValue("@ThoiLuong", time);
-                cmd.Parameters.AddWithValue("@DaoDien", tb_DaoDien.Text);
-                cmd.Parameters.AddWithValue("@NamSX", cb_NamSX.Text);
-                cmd.Parameters.AddWithValue("@QuocGia", tb_QuocGia.Text);
+                if (ValidInput())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO Phim VALUES (@TenPhim,@TheLoai,@ThoiLuong,@DaoDien,@NamSX,@QuocGia,@Anh)";
+                    cmd.Parameters.AddWithValue("@TenPhim", tb_TenPhim.Text);
+                    cmd.Parameters.AddWithValue("@TheLoai", tb_TheLoai.Text);
+                    TimeSpan time = TimeSpan.Parse(timePicker_ThoiLuong.Text.ToString());
+                    cmd.Parameters.AddWithValue("@ThoiLuong", time);
+                    cmd.Parameters.AddWithValue("@DaoDien", tb_DaoDien.Text);
+                    cmd.Parameters.AddWithValue("@NamSX", cb_NamSX.Text);
+                    cmd.Parameters.AddWithValue("@QuocGia", tb_QuocGia.Text);
 
-                byte[] image = File.ReadAllBytes(imgLocation);
+                    byte[] image = File.ReadAllBytes(imgLocation);
 
-                cmd.Parameters.AddWithValue("@Anh", image);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    cmd.Parameters.AddWithValue("@Anh", image);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm phim thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    imgLocation = null;
+                    this.Close();
+                }
             }
 
         }

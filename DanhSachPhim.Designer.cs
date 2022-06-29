@@ -42,14 +42,14 @@
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.gb_ThongTin = new System.Windows.Forms.GroupBox();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Change = new System.Windows.Forms.Button();
             this.tb_QuocGia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.FilmImage = new System.Windows.Forms.PictureBox();
-            this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.dgv_DSPhim = new System.Windows.Forms.DataGridView();
-            this.btn_Refresh = new System.Windows.Forms.Button();
             this.gb_ThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FilmImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSPhim)).BeginInit();
@@ -218,10 +218,10 @@
             this.gb_ThongTin.Controls.Add(this.btn_ThemPhim);
             this.gb_ThongTin.Controls.Add(this.label2);
             this.gb_ThongTin.Controls.Add(this.tb_TenPhim);
-            this.gb_ThongTin.Controls.Add(this.btn_Save);
-            this.gb_ThongTin.Controls.Add(this.btn_Sua);
             this.gb_ThongTin.Controls.Add(this.btn_Xoa);
             this.gb_ThongTin.Controls.Add(this.btn_Cancel);
+            this.gb_ThongTin.Controls.Add(this.btn_Save);
+            this.gb_ThongTin.Controls.Add(this.btn_Sua);
             this.gb_ThongTin.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_ThongTin.Location = new System.Drawing.Point(0, 0);
@@ -230,6 +230,17 @@
             this.gb_ThongTin.TabIndex = 16;
             this.gb_ThongTin.TabStop = false;
             this.gb_ThongTin.Text = "Thông tin phim";
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Location = new System.Drawing.Point(919, 341);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(152, 55);
+            this.btn_Refresh.TabIndex = 21;
+            this.btn_Refresh.Text = "Làm mới";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Change
             // 
@@ -274,18 +285,6 @@
             this.FilmImage.TabIndex = 1;
             this.FilmImage.TabStop = false;
             // 
-            // btn_Save
-            // 
-            this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Save.Location = new System.Drawing.Point(599, 341);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(152, 55);
-            this.btn_Save.TabIndex = 18;
-            this.btn_Save.Text = "Lưu";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            this.btn_Save.Visible = false;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
             // btn_Cancel
             // 
             this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -297,6 +296,18 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Visible = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Save.Location = new System.Drawing.Point(599, 341);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(152, 55);
+            this.btn_Save.TabIndex = 18;
+            this.btn_Save.Text = "Lưu";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Visible = false;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // dgv_DSPhim
             // 
@@ -315,17 +326,6 @@
             this.dgv_DSPhim.Size = new System.Drawing.Size(1232, 328);
             this.dgv_DSPhim.TabIndex = 17;
             this.dgv_DSPhim.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSPhim_CellClick);
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Refresh.Location = new System.Drawing.Point(919, 341);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(152, 55);
-            this.btn_Refresh.TabIndex = 21;
-            this.btn_Refresh.Text = "Làm mới";
-            this.btn_Refresh.UseVisualStyleBackColor = true;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // DanhSachPhim
             // 
