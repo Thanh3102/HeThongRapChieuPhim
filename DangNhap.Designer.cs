@@ -45,7 +45,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 274);
+            this.label1.Location = new System.Drawing.Point(49, 276);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 29);
             this.label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(61, 344);
+            this.label2.Location = new System.Drawing.Point(49, 346);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 29);
             this.label2.TabIndex = 1;
@@ -66,7 +66,7 @@
             this.tb_Username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.tb_Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Username.Location = new System.Drawing.Point(197, 280);
+            this.tb_Username.Location = new System.Drawing.Point(185, 282);
             this.tb_Username.Name = "tb_Username";
             this.tb_Username.Size = new System.Drawing.Size(262, 23);
             this.tb_Username.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.tb_Password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.tb_Password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Password.Location = new System.Drawing.Point(199, 351);
+            this.tb_Password.Location = new System.Drawing.Point(187, 353);
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.PasswordChar = '*';
             this.tb_Password.Size = new System.Drawing.Size(262, 23);
@@ -84,18 +84,20 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(221, 416);
+            this.btn_Login.BackColor = System.Drawing.Color.Lime;
+            this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Login.Location = new System.Drawing.Point(202, 410);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(190, 42);
             this.btn_Login.TabIndex = 4;
             this.btn_Login.Text = "Đăng nhập";
-            this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.bnt_Login_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(199, 309);
+            this.panel1.Location = new System.Drawing.Point(187, 311);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 1);
             this.panel1.TabIndex = 7;
@@ -103,7 +105,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(199, 380);
+            this.panel2.Location = new System.Drawing.Point(187, 382);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(260, 1);
             this.panel2.TabIndex = 8;
@@ -112,7 +114,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(228, 201);
+            this.label3.Location = new System.Drawing.Point(216, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 38);
             this.label3.TabIndex = 9;
@@ -121,7 +123,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Hệ_thống_quản_lý_rạp_chiếu_phim.Properties.Resources.cinema_reel;
-            this.pictureBox1.Location = new System.Drawing.Point(284, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(272, 87);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -131,7 +133,8 @@
             // btn_Exit
             // 
             this.btn_Exit.BackColor = System.Drawing.Color.Red;
-            this.btn_Exit.Location = new System.Drawing.Point(524, 49);
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.Location = new System.Drawing.Point(466, 49);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(45, 42);
             this.btn_Exit.TabIndex = 11;
@@ -144,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(611, 588);
+            this.ClientSize = new System.Drawing.Size(594, 550);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);

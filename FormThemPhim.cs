@@ -50,6 +50,7 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
             adapter.Fill(dt);
             if (dt.Rows.Count != 0)
             {
+                MessageBox.Show("Tên phim trùng lặp !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;

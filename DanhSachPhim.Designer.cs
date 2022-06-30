@@ -167,20 +167,22 @@
             // 
             // btn_ThemPhim
             // 
+            this.btn_ThemPhim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_ThemPhim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemPhim.Location = new System.Drawing.Point(433, 341);
             this.btn_ThemPhim.Name = "btn_ThemPhim";
             this.btn_ThemPhim.Size = new System.Drawing.Size(152, 55);
             this.btn_ThemPhim.TabIndex = 13;
             this.btn_ThemPhim.Text = "Thêm";
-            this.btn_ThemPhim.UseVisualStyleBackColor = true;
+            this.btn_ThemPhim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ThemPhim.UseVisualStyleBackColor = false;
             this.btn_ThemPhim.Click += new System.EventHandler(this.btn_ThemPhim_Click);
             // 
             // btn_Sua
             // 
             this.btn_Sua.Enabled = false;
             this.btn_Sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Sua.Location = new System.Drawing.Point(599, 341);
+            this.btn_Sua.Location = new System.Drawing.Point(591, 341);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(152, 55);
             this.btn_Sua.TabIndex = 14;
@@ -190,19 +192,20 @@
             // 
             // btn_Xoa
             // 
+            this.btn_Xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_Xoa.Enabled = false;
             this.btn_Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Xoa.Location = new System.Drawing.Point(761, 341);
+            this.btn_Xoa.Location = new System.Drawing.Point(749, 341);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(152, 55);
             this.btn_Xoa.TabIndex = 15;
             this.btn_Xoa.Text = "Xóa";
-            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Xoa.UseVisualStyleBackColor = false;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // gb_ThongTin
             // 
-            this.gb_ThongTin.Controls.Add(this.btn_Refresh);
             this.gb_ThongTin.Controls.Add(this.btn_Change);
             this.gb_ThongTin.Controls.Add(this.tb_QuocGia);
             this.gb_ThongTin.Controls.Add(this.label6);
@@ -215,13 +218,14 @@
             this.gb_ThongTin.Controls.Add(this.label3);
             this.gb_ThongTin.Controls.Add(this.tb_DaoDien);
             this.gb_ThongTin.Controls.Add(this.tb_ThoiLuong);
-            this.gb_ThongTin.Controls.Add(this.btn_ThemPhim);
             this.gb_ThongTin.Controls.Add(this.label2);
             this.gb_ThongTin.Controls.Add(this.tb_TenPhim);
+            this.gb_ThongTin.Controls.Add(this.btn_Refresh);
+            this.gb_ThongTin.Controls.Add(this.btn_ThemPhim);
             this.gb_ThongTin.Controls.Add(this.btn_Xoa);
+            this.gb_ThongTin.Controls.Add(this.btn_Sua);
             this.gb_ThongTin.Controls.Add(this.btn_Cancel);
             this.gb_ThongTin.Controls.Add(this.btn_Save);
-            this.gb_ThongTin.Controls.Add(this.btn_Sua);
             this.gb_ThongTin.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_ThongTin.Location = new System.Drawing.Point(0, 0);
@@ -233,13 +237,15 @@
             // 
             // btn_Refresh
             // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Refresh.Location = new System.Drawing.Point(919, 341);
+            this.btn_Refresh.Location = new System.Drawing.Point(907, 341);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(152, 55);
             this.btn_Refresh.TabIndex = 21;
             this.btn_Refresh.Text = "Làm mới";
-            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Refresh.UseVisualStyleBackColor = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Change
@@ -288,7 +294,7 @@
             // btn_Cancel
             // 
             this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancel.Location = new System.Drawing.Point(761, 341);
+            this.btn_Cancel.Location = new System.Drawing.Point(749, 341);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(152, 55);
             this.btn_Cancel.TabIndex = 19;
@@ -300,11 +306,12 @@
             // btn_Save
             // 
             this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Save.Location = new System.Drawing.Point(599, 341);
+            this.btn_Save.Location = new System.Drawing.Point(591, 341);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(152, 55);
             this.btn_Save.TabIndex = 18;
             this.btn_Save.Text = "Lưu";
+            this.btn_Save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
