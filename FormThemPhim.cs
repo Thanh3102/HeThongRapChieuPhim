@@ -29,11 +29,6 @@ namespace Hệ_thống_quản_lý_rạp_chiếu_phim
                 return false;
             }
 
-            if (tb_DaoDien.Text.All(char.IsLetter) == false || tb_TheLoai.Text.All(char.IsLetter) == false || tb_QuocGia.Text.All(char.IsLetter) == false)
-            {
-                MessageBox.Show("Thông tin không hợp lệ !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             if (imgLocation == null)
             {
                 MessageBox.Show("Chưa chọn ảnh !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
